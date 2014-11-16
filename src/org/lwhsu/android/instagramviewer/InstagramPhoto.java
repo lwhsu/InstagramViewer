@@ -7,4 +7,9 @@ public class InstagramPhoto {
     public String imageUrl;
     public int imageHeight;
     public int likesCount;
+
+    @Override
+    public String toString() {
+        return "image - " + imageUrl;
+    }
 }

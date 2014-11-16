@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -20,6 +21,7 @@ public class PhotoActivity extends Activity {
     public static final String CLIENT_ID = "2a1576e7d2b049119c5315148398d774";
 
     private ArrayList<InstagramPhoto> photos;
+    private InstagramPhotosAdapter aPhotos;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -32,6 +34,13 @@ public class PhotoActivity extends Activity {
     private void fetchPopularPhotos() {
 
         photos = new ArrayList<InstagramPhoto>();
+
+        // Create adapter bind it to the data in arraylist
+        aPhotos = new InstagramPhotosAdapter(this, photos);
+        // Populate the data into the listview
+        final ListView lvPhotos = (ListView) findViewById(R.id.lvPhotos);
+        // set the adapter to the listview (population of items)
+        lvPhotos.setAdapter(aPhotos);
 
         // https://api.instagram.com/v1/media/popular?client_id=clientid<>
         // { "data" => [x] => "images" => "standard_resolution" => url }
