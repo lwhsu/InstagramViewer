@@ -66,6 +66,7 @@ public class PhotoActivity extends Activity {
                 // { "data" => [x] => "caption" => "text" }
                 JSONArray photosJSON = null;
                 try {
+                    photos.clear();
                     photosJSON = response.getJSONArray("data");
                     for (int i = 0; i < photosJSON.length(); ++i) {
                         final JSONObject photoJSON = photosJSON.getJSONObject(i);
@@ -77,6 +78,7 @@ public class PhotoActivity extends Activity {
                         photo.likesCount = photoJSON.getJSONObject("likes").getInt("count");
                         photos.add(photo);
                     }
+                    aPhotos.notifyDataSetChanged();
                 } catch (final JSONException e) {
                     // Fire if things fail, json parsing is invalid
                     e.printStackTrace();
