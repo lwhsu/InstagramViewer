@@ -39,4 +39,22 @@
         android:layout_toRightOf="@+id/textView1"
         android:text="@string/unkown_user" />
 
+    <TextView
+        android:id="@+id/tvLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:text="0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvLikes"
+        android:layout_alignBottom="@+id/tvLikes"
+        android:layout_toRightOf="@+id/tvLikes"
+        android:layout_marginLeft="5px"
+        android:text="@string/likes" />
+
 </RelativeLayout>

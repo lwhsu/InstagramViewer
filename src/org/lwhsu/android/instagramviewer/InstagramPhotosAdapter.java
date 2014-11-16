@@ -34,11 +34,13 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         // Lookup the subview within the template
         final TextView tvCaption = (TextView) convertView.findViewById(R.id.tvCaption);
         final TextView tvUsername = (TextView) convertView.findViewById(R.id.tvUsername);
+        final TextView tvLikes = (TextView) convertView.findViewById(R.id.tvLikes);
         final ImageView imgPhoto = (ImageView) convertView.findViewById(R.id.imgPhoto);
 
         // Populate the subviews (textfield, imageview) with the correct data
         tvCaption.setText(photo.caption);
         tvUsername.setText(photo.username);
+        tvLikes.setText("" + photo.likesCount);
         // Set the image height before loading
         imgPhoto.getLayoutParams().height = photo.imageHeight;
         // Reset the image from the recycled view
